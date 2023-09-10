@@ -38,6 +38,9 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
+    env:
+      NETLIFY_SITE_ID: $NETLIFY_SITE_ID
+      NETLIFY_AUTH_TOKEN: $NETLIFY_AUTH_TOKEN
     steps:
     - uses: actions/checkout@v3
     - name: Run a one-line script
@@ -47,4 +50,4 @@ jobs:
         name: static-build
         path: frontend/dist
     - name: list dist
-      run: ls frontend/dist
+      run: cd frontend && npm i && npx netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir dist
