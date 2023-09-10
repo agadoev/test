@@ -33,7 +33,7 @@
           <span class="text-xl font-semibold">Latest transactions</span>
         </div>
 
-        <ul class="flex flex-col max-h-96 space-y-4 overflow-scroll ps-4 no-scrollbar">
+        <ul class="flex flex-col max-h-full space-y-4 overflow-scroll ps-4 no-scrollbar">
           <li v-for="transaction of transactions" :key="transaction.brand">
             <TransactionCard :transaction="transaction"/>
           </li>
