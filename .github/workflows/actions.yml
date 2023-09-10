@@ -47,4 +47,4 @@ jobs:
         name: static-build
         path: frontend/dist
     - name: list dist
-      run: ls fronend/dist
+      run: ls frontend/dist
