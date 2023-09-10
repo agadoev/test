@@ -1,4 +1,4 @@
-name: Node.js CI
+name: pipe
 
 on:
   push:
@@ -18,4 +18,17 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Run a one-line script
-      run: echo Hello from Octo Organization
+      run: echo from build
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run a one-line script
+      run: echo from test
