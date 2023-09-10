@@ -31,8 +31,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Run a one-line script
-      run: echo from test
+    - name: list directory
+      run: ls
 
   deploy:
 
