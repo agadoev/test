@@ -39,8 +39,8 @@ jobs:
       matrix:
         node-version: [18.x]
     env:
-      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ vars.NETLIFY_SITE_ID }}
+      NETLIFY_AUTH_TOKEN: ${{ vars.NETLIFY_AUTH_TOKEN }}
     steps:
     - uses: actions/checkout@v3
     - name: Run a one-line script
@@ -50,4 +50,4 @@ jobs:
         name: static-build
         path: frontend/dist
     - name: deploy
-      run: echo ${{ vars.NETLIFY_SITE_ID }}
+      run: echo $NETLIFY_SITE_ID
