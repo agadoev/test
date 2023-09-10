@@ -49,5 +49,5 @@ jobs:
       with:
         name: static-build
         path: frontend/dist
-    - name: list dist
-      run: cd frontend && npm i && npx netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir dist
+    - name: deploy
+      run: echo $NETLIFY_SITE_ID 
