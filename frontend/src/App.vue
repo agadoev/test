@@ -1,7 +1,7 @@
 <template>
   <router-view></router-view>
 
-  <div class="fixed bottom-0 left-0 border border-slate-200">
+  <div class="fixed bottom-0 bg-white left-0 border border-slate-200">
     <ul class="flex w-screen justify-center space-x-8 pb-3 pt-2">
       <li>
         <router-link to="/home">
