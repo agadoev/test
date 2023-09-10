@@ -1,0 +1,51 @@
+name: pipe
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+    - uses: actions/checkout@v3
+    - name: build
+      run: cd frontend && npm i && npm run build
+    - uses: actions/upload-artifact@master
+      with:
+        name: static-build
+        path: frontend/dist
+
+  test:
+    runs-on: ubuntu-latest
+    needs: [build]
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+    - uses: actions/checkout@v3
+    - name: list directory
+      run: ls
+
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    needs: [build, test]
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run a one-line script
+      run: echo from deploy
+    - uses: actions/download-artifact@master
+      with:
+        name: static-build
+        path: frontend/dist
+    - name: deploy
+      run: echo $NETLIFY_SITE_ID 
