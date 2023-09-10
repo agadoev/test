@@ -51,4 +51,4 @@ jobs:
         name: static-build
         path: frontend/dist
     - name: deploy
-      run: echo $NETLIFY_SITE_ID $NETLIFY_AUTH_TOKEN
+      run: echo ${{ secrets.NETLIFY_SITE_ID }}
