@@ -1,6 +1,6 @@
 # test
 
 - [x] [Деплой](https://cosmic-banoffee-9dcea1.netlify.app/)
-- [ ] Мониторинг (Sentry, Grafana)
+- [x] Мониторинг (Sentry)
 - [ ] Контракт (OpenAPI, Swagger)
 - [ ] Тесты (Playwright, Docker)
