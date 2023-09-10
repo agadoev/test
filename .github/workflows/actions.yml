@@ -38,7 +38,6 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
-
     env:
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
@@ -51,4 +50,4 @@ jobs:
         name: static-build
         path: frontend/dist
     - name: deploy
-      run: echo ${{ secrets.NETLIFY_SITE_ID }}
+      run: echo ${{ vars.NETLIFY_SITE_ID }}
