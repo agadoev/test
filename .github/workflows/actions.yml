@@ -39,7 +39,7 @@ jobs:
       matrix:
         node-version: [18.x]
     env:
-      NETLIFY_SITE_ID: $NETLIFY_SITE_ID
+      NETLIFY_SITE_ID: some
       NETLIFY_AUTH_TOKEN: $NETLIFY_AUTH_TOKEN
     steps:
     - uses: actions/checkout@v3
