@@ -1,0 +1,3 @@
+<template>
+    wallet view
+</template>
