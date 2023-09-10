@@ -34,11 +34,14 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
     needs: [build, test]
     strategy:
       matrix:
         node-version: [18.x]
+
+    env:
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
     steps:
     - uses: actions/checkout@v3
     - name: Run a one-line script
@@ -48,4 +51,4 @@ jobs:
         name: static-build
         path: frontend/dist
     - name: deploy
-      run: echo $NETLIFY_SITE_ID 
+      run: echo $NETLIFY_SITE_ID $NETLIFY_AUTH_TOKEN
