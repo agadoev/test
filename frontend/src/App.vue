@@ -45,7 +45,7 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import StubIcon from './StubIcon.vue'
+import StubIcon from './icons/StubIcon.vue'
 import MenuItem from './components/MenuItem.vue'
 
 const route = useRoute()

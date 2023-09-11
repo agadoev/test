@@ -28,6 +28,6 @@
 </template>
 
 <script setup lang="ts">
-import StubIcon from '../StubIcon.vue';
+import StubIcon from '../icons/StubIcon.vue';
 import BottomSheetNavigationItem from '../components/BottomSheetNavigationItem.vue';
 </script>
