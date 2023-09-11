@@ -1,8 +1,6 @@
 import { Transaction, Voucher } from "./types"
 import { faker } from '@faker-js/faker'
 
-console.log(faker.color.rgb())
-
 const createTransaction = (): Transaction => ({
   brand: faker.company.name(),
   createdAt: faker.date.past(),
