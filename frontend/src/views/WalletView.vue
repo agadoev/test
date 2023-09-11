@@ -33,7 +33,7 @@
 
         <ul class="flex w-full space-x-4 overflow-x-scroll ps-4 no-scrollbar">
           <li v-for="voucher of vouchers" :key="voucher.title">
-            <VoucherCard :voucher="voucher" @click="isVoucherDetailBottomsheet = true"/>
+            <VoucherCard :voucher="voucher" @click="open(voucher)" class="w-80"/>
           </li>
         </ul>
       </div>
@@ -66,14 +66,6 @@
       
       <AddToWalletView />
     </SwipeModal>
-
-    <SwipeModal
-      v-model="isVoucherDetailBottomsheet"
-      contents-height="60vh"
-      border-top-radius="30px">
-      
-      <VoucherDetailView />
-    </SwipeModal>
   </div>
 </template>
 
@@ -82,15 +74,15 @@ import VoucherCard from '../components/VoucherCard.vue';
 import TransactionCard from '../components/TransactionCard.vue';
 import ReedemPointsView from '../views/ReedemPointsView.vue';
 import AddToWalletView from '../views/AddToWalletView.vue'
-import VoucherDetailView from './VoucherDetailView.vue';
 // @ts-ignore
 import SwipeModal from '@takuma-ru/vue-swipe-modal'
 import { ref } from 'vue';
 import { useDb } from '../db';
+import { useVoucherDetailModal } from '../useVoucherDetailModal';
 
 const isReedemBottomsheet = ref(false)
 const isAddToWalletBottomsheet = ref(false)
-const isVoucherDetailBottomsheet = ref(false)
+const { open } = useVoucherDetailModal()
 
 const { vouchers, transactions } = useDb()
 </script>

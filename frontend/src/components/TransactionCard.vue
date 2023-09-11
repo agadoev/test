@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-center">
-    <img src="https://loremflickr.com/320/240" class="rounded-full w-12 h-12 me-2">
+    <img :src="image" class="rounded-full w-12 h-12 me-2">
     <div class="w-full text-start">
       <div class="flex justify-between pe-2">
         <h1 class="font-semibold">{{ transaction.brand }}</h1>
@@ -15,6 +15,9 @@
 
 <script setup lang="ts">
 import type { Transaction } from '../types'
+import { faker } from '@faker-js/faker'
+
+const image = faker.image.urlLoremFlickr()
 
 defineProps<{
   transaction: Transaction

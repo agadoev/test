@@ -41,12 +41,26 @@
       </li>
     </ul>
   </div>
+
+    <SwipeModal
+      v-model="voucherDetailModal.isOpened"
+      contents-height="60vh"
+      border-top-radius="30px">
+      
+      <VoucherDetailView />
+    </SwipeModal>
 </template>
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import StubIcon from './icons/StubIcon.vue'
 import MenuItem from './components/MenuItem.vue'
+import VoucherDetailView from './views/VoucherDetailView.vue';
+// @ts-ignore
+import SwipeModal from '@takuma-ru/vue-swipe-modal'
+import { useVoucherDetailModal } from './useVoucherDetailModal';
 
 const route = useRoute()
+
+const { voucherDetailModal } = useVoucherDetailModal()
 </script>

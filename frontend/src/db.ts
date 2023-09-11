@@ -1,20 +1,23 @@
 import { Transaction, Voucher } from "./types"
+import { faker } from '@faker-js/faker'
+
+console.log(faker.color.rgb())
 
 const createTransaction = (): Transaction => ({
-  brand: 'Darna',
-  createdAt: new Date(),
-  type: 'income',
-  amount: 43,
-  state: 'completed'
+  brand: faker.company.name(),
+  createdAt: faker.date.past(),
+  type: faker.helpers.arrayElement(['income', 'outcome']),
+  amount: faker.number.int({ min: 1, max: 1000 }),
+  state: faker.helpers.arrayElement(['completed', 'redeems', 'pending'])
 })
 
 const createVoucher = (): Voucher => ({
-  brand: 'Vapiano',
-  category: 'Dining',
-  imageUrl: 'https://loremflickr.com/320/240',
-  title: 'Buy 1 Get 1 Free',
-  description: 'Some long long long long long long long long long long long long description',
-  distance: 100
+  brand: faker.company.name(),
+  category: faker.commerce.product(),
+  imageUrl: faker.image.urlPicsumPhotos(),
+  title: faker.lorem.words({ min: 2, max: 4 }),
+  description: faker.lorem.lines(2),
+  distance: faker.number.int({ min: 1, max: 1000 })
 })
 
 const vouchers = new Array(10).fill(0).map(createVoucher)
@@ -22,17 +25,17 @@ const vouchers = new Array(10).fill(0).map(createVoucher)
 const transactions = new Array(10).fill(0).map(createTransaction)
 
 type Db = {
-    vouchers: Voucher[]
-    transactions: Transaction[]
+  vouchers: Voucher[]
+  transactions: Transaction[]
 }
 
 const useDb = (): Db => {
-    return {
-        vouchers,
-        transactions
-    }
+  return {
+    vouchers,
+    transactions
+  }
 }
 
 export {
-    useDb
+  useDb
 }

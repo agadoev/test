@@ -9,7 +9,10 @@
       <h1 class="font-bold text-3xl">Vouchers</h1>
     </div>
     <ul class="flex flex-col gap-4 w-80">
-      <li v-for="(voucher, index) of vouchers" :key="index">
+      <li
+        v-for="(voucher, index) of vouchers"
+        :key="index"
+        @click="open(voucher)">
         <VoucherCard :voucher="voucher"/>
       </li>
     </ul>
@@ -19,6 +22,8 @@
 <script setup lang="ts">
 import VoucherCard from '../components/VoucherCard.vue';
 import { useDb } from '../db.ts'
+import { useVoucherDetailModal } from '../useVoucherDetailModal';
 
 const { vouchers } = useDb()
+const { open } = useVoucherDetailModal()
 </script>
