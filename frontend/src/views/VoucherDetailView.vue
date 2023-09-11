@@ -1,20 +1,20 @@
 <template>
-  <div>
+  <div v-if="voucherDetailModal.selected">
     <div class="flex justify-center mb-4">
       <span>
-        {{ voucher.brand }}
+        {{ voucherDetailModal.selected.brand }}
       </span>
     </div>
 
-    <div class="flex justify-center mb-4">
+    <div class="flex justify-center text-center mb-4">
       <h1 class="font-bold text-3xl">
-        {{ voucher.title }}
+        {{ voucherDetailModal.selected.title }}
       </h1>
     </div>
 
     <div class="flex justify-center text-center mb-4">
       <span class="font-light">
-        {{ voucher.description }}
+        {{ voucherDetailModal.selected.description }}
       </span>
     </div>
 
@@ -23,7 +23,7 @@
         <QrCodeIcon class="w-48 h-48 fill-zinc-700"/>
 
         <img
-          :src="voucher.imageUrl"
+          :src="voucherDetailModal.selected.imageUrl"
           class="w-20 h-20 rounded-full border-4 border-white absolute top-1/2 left-1/2"
           style="transform: translate(-50%, -50%);">
       </div>
@@ -45,11 +45,10 @@
 </template>
 
 <script setup lang="ts">
-import { useDb } from '../db';
 import QrCodeIcon from '../icons/QrCodeIcon.vue'
 import LikeIcon from '../icons/LikeIcon.vue'
 import ShareIcon from '../icons/ShareIcon.vue'
+import { useVoucherDetailModal } from '../useVoucherDetailModal';
 
-const { vouchers } = useDb()
-const voucher = vouchers[0]
+const { voucherDetailModal } = useVoucherDetailModal()
 </script>

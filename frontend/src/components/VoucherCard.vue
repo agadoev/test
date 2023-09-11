@@ -1,8 +1,8 @@
 
 <template>
   <!-- component -->
-  <div class="w-full h-full border border-slate-200 border-radius rounded-l-2xl rounded-r-2xl flex flex-col">
-    <div class="grow rounded-tl-2xl rounded-tr-2xl px-3 pb-2 pt-3 bg-teal-100 flex items-center">
+  <div class="h-full border border-slate-200 border-radius rounded-l-2xl rounded-r-2xl flex flex-col">
+    <div class="grow rounded-tl-2xl rounded-tr-2xl px-3 pb-2 pt-3 flex items-center" :style="{ 'background-color': bg }">
       <div class="flex w-full">
         <img :src="voucher.imageUrl" class="rounded-full w-12 h-12 me-2">
         <div class="w-full text-start">
@@ -25,6 +25,9 @@
 
 <script setup lang="ts">
 import type { Voucher } from '../types';
+import { faker } from '@faker-js/faker'
+
+const bg = faker.color.rgb()
 
 defineProps<{
   voucher: Voucher
