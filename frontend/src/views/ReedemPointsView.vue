@@ -1,64 +1,54 @@
 <template>
   <div>
-    <div class="flex justify-end px-4">
-      <button @click="emit('close')">x</button>
-    </div>
     <div class="text-center mb-4">
       <h1 class="font-bold text-2xl mb-2 text-gray-800">Reedem points</h1>
       <span class="font-light">Choose how do you want to spend your points</span>
     </div>
     <ul class="flex flex-col gap-4">
       <li>
-        <div class="flex bg-neutral-100 w-80 m-auto p-4 rounded-3xl items-center">
-          <div class="w-10 h-10 me-2 shrink-0">
-            <StubIcon class="stroke-gray-800" /> 
-          </div>
-          <span class="font-bold text-gray-800">Transfer to bank card</span>
-        </div>
+        <BottomSheetNavigationItem
+          :title="'Transfer to bank card'"
+          :description="''">
+          <template v-slot:icon>
+            <StubIcon v-slot:icon class="stroke-gray-800" /> 
+          </template>
+        </BottomSheetNavigationItem>
       </li>
       <li>
-        <div class="flex bg-neutral-100 w-80 m-auto p-4 rounded-3xl items-center">
-          <div class="w-10 h-10 me-2 shrink-0">
-            <StubIcon class="stroke-gray-800" /> 
-          </div>
-          <div class="flex flex-col">
-            <span class="font-bold text-gray-800">To friends</span>
-            <span class="text-gray-400 text-sm">Share your cashback with friends and family</span>
-          </div>
-        </div>
+        <BottomSheetNavigationItem
+          :title="'To friends'"
+          :description="'Share your cashback with friends and family'">
+          <template v-slot:icon>
+            <StubIcon v-slot:icon class="stroke-gray-800" /> 
+          </template>
+        </BottomSheetNavigationItem>
       </li>
       <li>
-        <div class="flex bg-neutral-100 w-80 m-auto p-4 rounded-3xl items-center">
-          <div class="w-10 h-10 me-2 shrink-0">
-            <StubIcon class="stroke-gray-800" /> 
-          </div>
-          <div class="flex flex-col">
-            <span class="font-bold text-gray-800">Donate</span>
-            <span class="text-gray-400 text-sm">Choose an organization you'd like to help</span>
-          </div>
-        </div>
+        <BottomSheetNavigationItem
+          :title="'Donate'"
+          :description="'Choose an organization you\'d like to help'">
+          <template v-slot:icon>
+            <StubIcon v-slot:icon class="stroke-gray-800" /> 
+          </template>
+        </BottomSheetNavigationItem>
       </li>
       <li>
-        <div class="flex bg-neutral-100 w-80 m-auto p-4 rounded-3xl items-center">
-          <div class="w-10 h-10 me-2 shrink-0">
-            <StubIcon class="stroke-gray-800" /> 
-          </div>
-          <div class="flex flex-col">
-            <span class="font-bold text-gray-800">Buy Bitcoins</span>
-            <span class="text-gray-400 text-sm">Exchange your cashback for most crypto currency</span>
-          </div>
-        </div>
+        <BottomSheetNavigationItem
+          :title="'Buy Bitcoins'"
+          :description="'Exchange your cashback for most crypto currency'">
+          <template v-slot:icon>
+            <StubIcon v-slot:icon class="stroke-gray-800" /> 
+          </template>
+        </BottomSheetNavigationItem>
       </li>
       <li>
-        <div class="flex bg-neutral-100 w-80 m-auto p-4 rounded-3xl items-center">
-          <div class="w-10 h-10 me-2 shrink-0">
-            <StubIcon class="stroke-gray-800" /> 
-          </div>
-          <div class="flex flex-col">
-            <span class="font-bold text-gray-800">Get Etihan Airways miles</span>
-            <span class="text-gray-400 text-sm">Convert</span>
-          </div>
-        </div>
+        <BottomSheetNavigationItem
+          :title="'Get Etihan Airways miles'"
+          :description="'Convert'">
+          <template v-slot:icon>
+            <StubIcon v-slot:icon class="stroke-gray-800" /> 
+          </template>
+        </BottomSheetNavigationItem>
       </li>
     </ul> 
   </div>
@@ -66,6 +56,5 @@
 
 <script setup lang="ts">
 import StubIcon from '../StubIcon.vue';
-
-const emit = defineEmits(['close'])
+import BottomSheetNavigationItem from '../components/BottomSheetNavigationItem.vue';
 </script>

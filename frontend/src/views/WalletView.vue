@@ -10,8 +10,16 @@
 
         </div>
         <div class="flex">
-          <button @click="isModal = true" class="text-white bg-black rounded-full px-6 py-3 me-2">Reedem</button>
-          <button class="text-black bg-gray-200 rounded-full px-6 py-3">Add</button>
+          <button
+            @click="isReedemBottomsheet = true"
+            class="text-white bg-black rounded-full px-6 py-3 me-2">
+            Reedem
+          </button>
+          <button
+            @click="isAddToWalletBottomsheet = true"
+            class="text-black bg-gray-200 rounded-full px-6 py-3">
+            Add
+          </button>
         </div>
       </div>
 
@@ -42,11 +50,19 @@
     </div>
 
     <SwipeModal
-      v-model="isModal"
+      v-model="isReedemBottomsheet"
       contents-height="80vh"
-      border-top-radius="16px">
+      border-top-radius="30px">
       
-      <ReedemPointsView @close="isModal = false" />
+      <ReedemPointsView />
+    </SwipeModal>
+
+    <SwipeModal
+      v-model="isAddToWalletBottomsheet"
+      contents-height="35vh"
+      border-top-radius="30px">
+      
+      <AddToWalletView />
     </SwipeModal>
   </div>
 </template>
@@ -56,6 +72,7 @@ import type { Voucher, Transaction } from '../types'
 import VoucherCard from '../components/VoucherCard.vue';
 import TransactionCard from '../components/TransactionCard.vue';
 import ReedemPointsView from '../views/ReedemPointsView.vue';
+import AddToWalletView from '../views/AddToWalletView.vue'
 // @ts-ignore
 import SwipeModal from '@takuma-ru/vue-swipe-modal'
 import { ref } from 'vue';
@@ -68,7 +85,8 @@ const createTransaction = (): Transaction => ({
   state: 'completed'
 })
 
-const isModal = ref(false)
+const isReedemBottomsheet = ref(false)
+const isAddToWalletBottomsheet = ref(false)
 
 const createVoucher = (): Voucher => ({
   brand: 'Vapiano',
