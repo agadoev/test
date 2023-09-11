@@ -26,7 +26,9 @@
       <div class="py-4">
         <div class="flex justify-between mb-3 px-4">
           <span class="text-xl font-semibold">Saved vouchers</span>
-          <span class="font-light text-slate-400">See all</span>
+          <router-link to="/wallet/vouchers">
+            <span class="font-light text-slate-400">See all</span>
+          </router-link>
         </div>
 
         <ul class="flex w-full space-x-4 overflow-x-scroll ps-4 no-scrollbar">
@@ -68,7 +70,6 @@
 </template>
 
 <script setup lang="ts">
-import type { Voucher, Transaction } from '../types'
 import VoucherCard from '../components/VoucherCard.vue';
 import TransactionCard from '../components/TransactionCard.vue';
 import ReedemPointsView from '../views/ReedemPointsView.vue';
@@ -76,28 +77,10 @@ import AddToWalletView from '../views/AddToWalletView.vue'
 // @ts-ignore
 import SwipeModal from '@takuma-ru/vue-swipe-modal'
 import { ref } from 'vue';
-
-const createTransaction = (): Transaction => ({
-  brand: 'Darna',
-  createdAt: new Date(),
-  type: 'income',
-  amount: 43,
-  state: 'completed'
-})
+import { useDb } from '../db';
 
 const isReedemBottomsheet = ref(false)
 const isAddToWalletBottomsheet = ref(false)
 
-const createVoucher = (): Voucher => ({
-  brand: 'Vapiano',
-  category: 'Dining',
-  imageUrl: 'https://loremflickr.com/320/240',
-  title: 'Buy 1 Get 1 Free',
-  description: 'Some long long long long long long long long long long long long description',
-  distance: 100
-})
-
-const vouchers = new Array(10).fill(0).map(createVoucher)
-
-const transactions = new Array(10).fill(0).map(createTransaction)
+const { vouchers, transactions } = useDb()
 </script>
