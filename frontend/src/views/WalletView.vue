@@ -10,7 +10,7 @@
 
         </div>
         <div class="flex">
-          <button class="text-white bg-black rounded-full px-6 py-3 me-2">Reedem</button>
+          <button @click="isModal = true" class="text-white bg-black rounded-full px-6 py-3 me-2">Reedem</button>
           <button class="text-black bg-gray-200 rounded-full px-6 py-3">Add</button>
         </div>
       </div>
@@ -40,13 +40,25 @@
         </ul>
       </div>
     </div>
-    </div>
+
+    <SwipeModal
+      v-model="isModal"
+      contents-height="80vh"
+      border-top-radius="16px">
+      
+      <ReedemPointsView @close="isModal = false" />
+    </SwipeModal>
+  </div>
 </template>
 
 <script setup lang="ts">
 import type { Voucher, Transaction } from '../types'
 import VoucherCard from '../components/VoucherCard.vue';
 import TransactionCard from '../components/TransactionCard.vue';
+import ReedemPointsView from '../views/ReedemPointsView.vue';
+// @ts-ignore
+import SwipeModal from '@takuma-ru/vue-swipe-modal'
+import { ref } from 'vue';
 
 const createTransaction = (): Transaction => ({
   brand: 'Darna',
@@ -55,6 +67,8 @@ const createTransaction = (): Transaction => ({
   amount: 43,
   state: 'completed'
 })
+
+const isModal = ref(false)
 
 const createVoucher = (): Voucher => ({
   brand: 'Vapiano',
