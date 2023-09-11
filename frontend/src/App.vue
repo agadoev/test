@@ -5,7 +5,7 @@
     <ul class="flex w-screen justify-center space-x-8 pb-3 pt-2">
       <li>
         <router-link to="/home">
-          <MenuItem :is-active="route.path === '/home'" :title="'home'">
+          <MenuItem :is-active="route.path.startsWith('/home')" :title="'home'">
             <template v-slot:icon>
               <StubIcon />
             </template>
@@ -14,7 +14,7 @@
       </li>
       <li>
         <router-link to="/wallet">
-          <MenuItem :is-active="route.path === '/wallet'" :title="'wallet'">
+          <MenuItem :is-active="route.path.startsWith('/wallet')" :title="'wallet'">
             <template v-slot:icon>
               <StubIcon />
             </template>
@@ -23,7 +23,7 @@
       </li>
       <li>
         <router-link to="/benefits">
-          <MenuItem :is-active="route.path === '/benefits'" :title="'benefits'">
+          <MenuItem :is-active="route.path.startsWith('/benefits')" :title="'benefits'">
             <template v-slot:icon>
               <StubIcon />
             </template>
@@ -32,7 +32,7 @@
       </li>
       <li>
         <router-link to="/profile">
-          <MenuItem :is-active="route.path === '/profile'" :title="'profile'">
+          <MenuItem :is-active="route.path.startsWith('/profile')" :title="'profile'">
             <template v-slot:icon>
               <StubIcon />
             </template>
