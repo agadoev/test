@@ -12,7 +12,7 @@
       <li
         v-for="(voucher, index) of vouchers"
         :key="index"
-        @click="open(voucher)">
+        @click="openVoucherDetail(voucher)">
         <VoucherCard :voucher="voucher"/>
       </li>
     </ul>
@@ -25,5 +25,5 @@ import { useDb } from '../db.ts'
 import { useVoucherDetailModal } from '../useVoucherDetailModal';
 
 const { vouchers } = useDb()
-const { open } = useVoucherDetailModal()
+const { openVoucherDetail } = useVoucherDetailModal()
 </script>

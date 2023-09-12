@@ -10,13 +10,13 @@ const voucherDetailModal = reactive<{
 })
 
 const useVoucherDetailModal = () => {
-  const open = (voucher: Voucher) => {
+  const openVoucherDetail = (voucher: Voucher) => {
     voucherDetailModal.selected = voucher
     voucherDetailModal.isOpened = true
   }
 
   return {
-    open,
+    openVoucherDetail,
     voucherDetailModal
   } 
 }
