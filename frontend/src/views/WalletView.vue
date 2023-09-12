@@ -4,11 +4,16 @@
     <div class="flex flex-col divide-y-8">
 
       <div class="px-4 pt-12 pb-6">
-        <div class="ps-4 mb-6">
-          <h1 class="text-4xl mb-2">50 points</h1>
-          <span class="text-slate-400">10,2 AED</span>
-
+        <div class="flex items-center mb-6">
+          <div class="me-2">
+            <RubyIcon class="w-10 h-10" />
+          </div>
+          <div>
+            <h1 class="text-4xl mb-2">50 points</h1>
+            <span class="text-slate-400">10,2 AED</span>
+          </div>
         </div>
+
         <div class="flex">
           <button
             @click="isReedemBottomsheet = true"
@@ -33,7 +38,9 @@
 
         <ul class="flex w-full space-x-4 overflow-x-scroll ps-4 no-scrollbar">
           <li v-for="voucher of vouchers" :key="voucher.title">
-            <VoucherCard :voucher="voucher" @click="open(voucher)" class="w-80"/>
+            <VoucherCard
+              :voucher="voucher"
+              @click="openVoucherDetail(voucher)" class="w-80"/>
           </li>
         </ul>
       </div>
@@ -45,7 +52,9 @@
 
         <ul class="flex flex-col max-h-full space-y-4 overflow-scroll ps-4 no-scrollbar">
           <li v-for="transaction of transactions" :key="transaction.brand">
-            <TransactionCard :transaction="transaction"/>
+            <TransactionCard
+              :transaction="transaction"
+              @click="openTransactionDetail(transaction)"/>
           </li>
         </ul>
       </div>
@@ -55,7 +64,6 @@
       v-model="isReedemBottomsheet"
       contents-height="80vh"
       border-top-radius="30px">
-      
       <ReedemPointsView />
     </SwipeModal>
 
@@ -63,8 +71,14 @@
       v-model="isAddToWalletBottomsheet"
       contents-height="35vh"
       border-top-radius="30px">
-      
       <AddToWalletView />
+    </SwipeModal>
+
+    <SwipeModal
+      v-model="transactionDetailModal.isOpened"
+      contents-height="40vh"
+      border-top-radius="30px">
+      <TransactionDetailView />
     </SwipeModal>
   </div>
 </template>
@@ -73,16 +87,20 @@
 import VoucherCard from '../components/VoucherCard.vue';
 import TransactionCard from '../components/TransactionCard.vue';
 import ReedemPointsView from '../views/ReedemPointsView.vue';
+import TransactionDetailView from '../views/TransactionDetailView.vue';
 import AddToWalletView from '../views/AddToWalletView.vue'
 // @ts-ignore
 import SwipeModal from '@takuma-ru/vue-swipe-modal'
 import { ref } from 'vue';
 import { useDb } from '../db';
 import { useVoucherDetailModal } from '../useVoucherDetailModal';
+import RubyIcon from '../icons/RubyIcon.vue';
+import { useTransactionDetailModal } from '../useTransactionDetailModal';
 
 const isReedemBottomsheet = ref(false)
 const isAddToWalletBottomsheet = ref(false)
-const { open } = useVoucherDetailModal()
+const { openVoucherDetail } = useVoucherDetailModal()
+const { openTransactionDetail, transactionDetailModal } = useTransactionDetailModal()
 
 const { vouchers, transactions } = useDb()
 </script>

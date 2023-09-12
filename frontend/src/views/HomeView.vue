@@ -26,7 +26,6 @@
       <div class="flex justify-center mb-2">
         <button class="bg-zinc-200 text-black w-72 py-2 px-6 rounded-xl">Label</button>
       </div>
-
     </div>
   </div>
 </template>
