@@ -8,7 +8,7 @@
     <div class="mb-4">
       <h1 class="font-bold text-3xl">Vouchers</h1>
     </div>
-    <ul class="flex flex-col gap-4 w-96">
+    <ul class="flex flex-col gap-4 w-96 pb-24">
       <li
         v-for="(voucher, index) of vouchers"
         :key="index"

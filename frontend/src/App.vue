@@ -7,7 +7,7 @@
         <router-link to="/home">
           <MenuItem :is-active="route.path.startsWith('/home')" :title="'home'">
             <template v-slot:icon>
-              <StubIcon />
+              <HomeIcon />
             </template>
           </MenuItem>
         </router-link>
@@ -16,7 +16,7 @@
         <router-link to="/wallet">
           <MenuItem :is-active="route.path.startsWith('/wallet')" :title="'wallet'">
             <template v-slot:icon>
-              <StubIcon />
+              <WalletIcon />
             </template>
           </MenuItem>
         </router-link>
@@ -25,7 +25,7 @@
         <router-link to="/benefits">
           <MenuItem :is-active="route.path.startsWith('/benefits')" :title="'benefits'">
             <template v-slot:icon>
-              <StubIcon />
+              <BenefitsIcon />
             </template>
           </MenuItem>
         </router-link>
@@ -34,7 +34,7 @@
         <router-link to="/profile">
           <MenuItem :is-active="route.path.startsWith('/profile')" :title="'profile'">
             <template v-slot:icon>
-              <StubIcon />
+              <ProfileIcon />
             </template>
           </MenuItem>
         </router-link>
@@ -42,18 +42,17 @@
     </ul>
   </div>
 
-    <SwipeModal
-      v-model="voucherDetailModal.isOpened"
-      contents-height="60vh"
-      border-top-radius="30px">
-      
-      <VoucherDetailView />
-    </SwipeModal>
+  <SwipeModal v-model="voucherDetailModal.isOpened" contents-height="60vh" border-top-radius="30px">
+    <VoucherDetailView />
+  </SwipeModal>
 </template>
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import StubIcon from './icons/StubIcon.vue'
+import HomeIcon from './icons/HomeIcon.vue';
+import WalletIcon from './icons/WalletIcon.vue'
+import BenefitsIcon from './icons/BenefitsIcon.vue';
+import ProfileIcon from './icons/ProfileIcon.vue'
 import MenuItem from './components/MenuItem.vue'
 import VoucherDetailView from './views/VoucherDetailView.vue';
 // @ts-ignore
