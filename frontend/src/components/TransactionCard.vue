@@ -2,7 +2,7 @@
   <div class="flex items-center justify-center">
     <img :src="transaction.imageUrl" class="rounded-full w-12 h-12 me-2">
     <div class="w-full text-start">
-      <div class="flex justify-between pe-2">
+      <div class="flex justify-between pe-4">
         <h1 class="font-semibold">{{ transaction.brand }}</h1>
         <span class="font-bold">
           <span v-if="transaction.type === 'outcome'">-</span>

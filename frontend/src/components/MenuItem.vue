@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center w-16">
     <div
-      class="w-10 h-10"
+      class="w-8 h-8 fill-white"
       :class="{
         'stroke-black': props.isActive,
         'stroke-slate-400': !props.isActive
