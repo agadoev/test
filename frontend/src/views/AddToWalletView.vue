@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-4">
     <div class="text-center mb-4">
       <h1 class="font-bold text-2xl mb-2 text-gray-800">Add to wallet</h1>
     </div>

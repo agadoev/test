@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="mt-10">
     <div class="text-center mb-4">
-      <h1 class="font-bold text-2xl mb-2 text-gray-800">Reedem points</h1>
-      <span class="font-light">Choose how do you want to spend your points</span>
+      <h1 class="font-bold text-2xl mb-4 text-gray-800">Reedem points</h1>
+      <span class="font-light mg-4">Choose how do you want to spend your points</span>
     </div>
     <ul class="flex flex-col gap-4">
       <li>
