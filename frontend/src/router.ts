@@ -1,5 +1,5 @@
 import HomeView from './views/HomeView.vue'
-import WalletView from './views/WalletView.vue'
+import WalletView from './views/WalletView/WalletView.vue'
 import BenefitsView from './views/BenefitsView.vue'
 import ProfileView from './views/ProfileView.vue'
 import VouchersView from './views/VouchersView.vue'
