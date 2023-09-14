@@ -40,8 +40,8 @@
 </template>
 
 <script setup lang="ts">
-import RubyIcon from '../icons/RubyIcon.vue';
-import { useTransactionDetailModal } from '../useTransactionDetailModal';
+import RubyIcon from '../../icons/RubyIcon.vue';
+import { useTransactionDetailModal } from '../../useTransactionDetailModal';
 
 const { transactionDetailModal, closeTransactionDetail } = useTransactionDetailModal()
 </script>

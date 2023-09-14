@@ -84,18 +84,18 @@
 </template>
 
 <script setup lang="ts">
-import VoucherCard from '../components/VoucherCard.vue';
-import TransactionCard from '../components/TransactionCard.vue';
-import ReedemPointsView from '../views/ReedemPointsView.vue';
-import TransactionDetailView from '../views/TransactionDetailView.vue';
-import AddToWalletView from '../views/AddToWalletView.vue'
+import VoucherCard from '../../components/VoucherCard.vue';
+import TransactionCard from '../../components/TransactionCard.vue';
+import ReedemPointsView from './ReedemPointsView.vue';
+import TransactionDetailView from './TransactionDetailView.vue';
+import AddToWalletView from './AddToWalletView.vue'
 // @ts-ignore
 import SwipeModal from '@takuma-ru/vue-swipe-modal'
 import { ref } from 'vue';
-import { useDb } from '../db';
-import { useVoucherDetailModal } from '../useVoucherDetailModal';
-import RubyIcon from '../icons/RubyIcon.vue';
-import { useTransactionDetailModal } from '../useTransactionDetailModal';
+import { useDb } from '../../db';
+import { useVoucherDetailModal } from '../../useVoucherDetailModal';
+import RubyIcon from '../../icons/RubyIcon.vue';
+import { useTransactionDetailModal } from '../../useTransactionDetailModal';
 
 const isReedemBottomsheet = ref(false)
 const isAddToWalletBottomsheet = ref(false)

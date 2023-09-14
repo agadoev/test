@@ -19,20 +19,27 @@ const createVoucher = (): Voucher => ({
   distance: faker.number.int({ min: 1, max: 1000 })
 })
 
-const vouchers = new Array(10).fill(0).map(createVoucher)
-
-const transactions = new Array(10).fill(0).map(createTransaction)
-
 type Db = {
   vouchers: Voucher[]
   transactions: Transaction[]
 }
 
+const fakeDb = {
+  vouchers: new Array(10)
+    .fill(0)
+    .map(createVoucher),
+  transactions: new Array(10)
+    .fill(0)
+    .map(createTransaction)
+}
+
 const useDb = (): Db => {
-  return {
-    vouchers,
-    transactions
-  }
+
+  const db = localStorage.getItem('db')
+
+  return db
+    ? JSON.parse(db) as Db
+    : fakeDb
 }
 
 export {
